@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('Public/css/style.css') }}" />
+        <link rel="stylesheet"  href="{{ asset('Public/css/bootstrap.css') }}" />
+        <link rel="stylesheet"  href="{{ asset('Public/css/bootstrap-responsive.css') }}" />
+        <link rel="stylesheet" href="{{ asset('Public/css/font-awesome.css') }}" />
+    {% endblock %}
+</head>
+<div class="navbar navbar-inverse navbar-fixed-top" id="navbartop">
+
+    <div class="nav-collapse collapse">
+
+        <form class="navbar-form form-search pull-right">
+            <input id="Search" name="Search" type="text" class="input-medium search-query">
+            <h1><?php echo ' Bienvenue' . $_SERVER['REMOTE_USER'] . ' !' ?><h1>
+            <a  class="btn " href="{{ path('fos_user_registration_register') }}">Inscription</a>
+            <a type="submit"  href="{{ path('fos_user_security_login') }}" class="btn btn-primary">Connection</a>
+        </form>
+
+    </div>
+    <div class="navbar-inner">
+        <img src="{{ asset ('Public/img/logocarteSPPIM.png') }}"  alt="..." class="img-thumbnail" id="logo" >
+        <div class="container" id="menuTop">
+            <a class="brand" href="{{ path('sppim_homepage') }}">S.P.P.I.M Menuiseries</a>
+            <ul class="nav nav-tabs" >
+                <li class="nav-item" >
+                    <a class="nav-link active"  href="#" >Fenêtres</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link active"  href="#" >Portes</a>
+                </li>
+                <li class="nav-item" id="nav_item">
+                    <a class="nav-link"  href="#">Aménagements Intérieur</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link active" href="#" >Cloisons</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" href="#" >Petits Travaux Divers</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link active" href="#" >Devis Sur Mesures</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link disabled" href="#" >Réalisations</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+<div class="container"  id="barre_menu">
+    <div class="col-md-12 col-lg-12" id="btn_barre_haute_nav" >
+        <ul class="nav nav-tabs" >
+            <li class="nav-item2" >
+                <a class="nav-link active" href="{{ path('fenetres') }}" id="nav_item">Fenêtres</a>
+            </li>
+            <li class="nav-item2" >
+                <a class="nav-link active" href="{{ path('portes') }}" id="nav_item">Portes</a>
+            </li>
+            <li class="nav-item2" id="nav_item">
+                <a class="nav-link" href="{{ path('amenagements') }}" id="nav_item">Aménagements Intérieur</a>
+            </li>
+            <li class="nav-item2" >
+                <a class="nav-link active" href="#" id="nav_item">Cloisons</a>
+            </li>
+            <li class="nav-item2" >
+                <a class="nav-link" href="#" id="nav_item">Petits Travaux Divers</a>
+            </li>
+            <li class="nav-item2" >
+                <a class="nav-link active" href="#" id="nav_item">Devis Sur Mesures</a>
+            </li>
+            <li class="nav-item2" >
+                <a class="nav-link disabled" href="#" id="nav_item">Réalisations</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}S.P.P.I.M Menuiseries Vitrine{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('Public/css/style.css') }}" />
+        <link rel="stylesheet"  href="{{ asset('Public/css/bootstrap.css') }}" />
+        <link rel="stylesheet"  href="{{ asset('Public/css/bootstrap-responsive.css') }}" />
+        <link rel="stylesheet" href="{{ asset('Public/css/font-awesome.css') }}" />
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<header>
+<div class="navbar navbar-inverse navbar-fixed-top" id="navbartop">
+    {% include "Modules/SousNav.html.twig" %}
+</div>
+</header>
+<body>
+<div class="container-fluid">
+    <div class="row">
+    <div class="span3" id="NavMenu">
+        <div class="container" id="btn_navmenu">
+        <button type="button" class="btn  btn-block" id="btn_nav">Fenetres</button>
+        <button type="button" class="btn  btn-block" id="btn_nav">Portes</button>
+        <button type="button" class="btn  btn-block" id="btn_nav">Aménagements Intérieur</button>
+        <button type="button" class="btn  btn-block" id="btn_nav">Cloisons/vérrières</button>
+        <button type="button" class="btn  btn-block" id="btn_nav">Dépannages</button>
+        <button type="button" class="btn  btn-block" id="btn_nav">Travaux Divers</button>
+        <button type="button" class="btn  btn-block" id="btn_nav">Réalisations</button>
+    </div>
+    </div>
+    <div class="span9">
+        {% block bodycatalogue %}
+            {% include "catalogue_amenagements.html.twig" %}
+        {% endblock %}
+    </div>
+</div>
+</div>
+
+</body>
+<footer id="footer" class="vspace20">
+
+    <div class="navbar navbar-inverse navbar-fixed-bottom" id="navbarbottom">
+        <div class="navbar-inner">
+            <div class="container">
+
+                <a class="brand" href="#">S.P.P.I.M Menuiseries</a>
+                <div class="nav-collapse collapse">
+                    <div class="container">
+                        <div class="col-md-12 col-lg-12">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">CGV</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Mentions Legales</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Copyright Danny Langevin @2018</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</footer>
+<script src="{{ asset('Public/js/jquery-1.10.0.min.js') }}"></script>
+<script src="{{ asset ('Public/js/bootstrap.js') }}"></script>
+<script>
+    function myFunction() {
+        document.getElementById("barre_menu").style.visibility = "visible";
+    }</script>
+{% block javascripts %}{% endblock %}
+
+</html>

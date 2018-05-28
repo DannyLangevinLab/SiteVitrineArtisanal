@@ -1,0 +1,51 @@
+sppim_homepage:
+    path:     /
+    defaults: { _controller: SppimBundle:Default:index }
+fenetres:
+    path:     /fenetres
+    defaults: { _controller: SppimBundle:Fenetres:montrefenetres }
+portes:
+    path:     /portes
+    defaults: { _controller: SppimBundle:Portes:montreportes }
+amenagements:
+    path:     /amenagements
+    defaults: { _controller: SppimBundle:Amenagements:montreamenagements }
+infoFenetres:
+    path:     /infoFenetre
+    defaults: { _controller: SppimBundle:Fenetres:montreinfosfenetres }
+administration:
+    path:     /administration
+    defaults: { _controller: SppimBundle:Administration:index }
+planning:
+    path:     /planning
+    defaults: { _controller: SppimBundle:Administration:planning }
+ajout:
+    path: /ajout
+    defaults: { _controller: SppimBundle:AjoutProduits:ajouter }
+creerProduits:
+    path: /creerProduits
+    defaults: { _controller: SppimBundle:AjoutProduits:creerFormulaire }
+inscription:
+    path: /inscription
+    defaults: { _controller: SppimBundle:Register:registration }
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile

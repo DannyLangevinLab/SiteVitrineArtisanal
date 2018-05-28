@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="row">
+                    <div class="span2">
+            </div>
+            <div class="span9">
+                <ul class="thumbnails">
+                    {%  for i in 0..8 %}
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <img src="{{ asset ('Public/img/fenetre_1.jpg') }}" alt="Produit" width="150" height="150">
+                                <div class="caption">
+                                    <h4>Thumbnail label</h4>
+                                    <p>100,00 €</p>
+                                    <a  class="btn " href="{{ path('infoFenetres') }}">Plus d'infos</a>
+                                    <a class="btn btn-success" href="#">Ajouter au Devis</a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="pagination">
+                    <ul>
+                        <li class="disabled"><span>Précédent</span></li>
+                        <li class="disabled"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">Suivant</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="{{ asset('Public/js/jquery-1.10.0.min.js') }}"></script>
+    <script src="{{ asset ('Public/js/bootstrap.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+
+</html>

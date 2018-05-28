@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block apercu %}
+{% for produits in produits %}
+    <section>
+        <ul>
+            <li>{{ produits.image }}</li>
+            <li>{{ produits.nom }}</li>
+            <li>{{ produits.description }}</li>
+            <li>{{ produits.coloris }}</li>
+            <li>{{ produits.prix }}</li>
+            <li>{{ produits.tva }}</li>
+            <li>{{ produits.categorie }}</li>
+            <li>{{ produits.disponible }}</li>
+        </ul>
+    </section>
+{% endfor %}
+{% endblock %}

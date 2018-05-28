@@ -1,0 +1,26 @@
+
+
+
+
+
+{% extends "Admin/Adminbase.html.twig" %}
+ {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('Public/css/style.css') }}" />
+    <link rel="stylesheet"  href="{{ asset('Public/css/bootstrap.css') }}" />
+    <link rel="stylesheet"  href="{{ asset('Public/css/bootstrap-responsive.css') }}" />
+    <link rel="stylesheet" href="{{ asset('Public/css/font-awesome.css') }}" />
+     <link rel="stylesheet" href="{{ asset('Public/fullcalendar/fullcalendar.min.css') }}" />
+ {% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('Public/js/fullcalendar/lib/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Public/js/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Public/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Public/js/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js') }}"></script>
+{% endblock %}
+{% block title %}Planning{% endblock %}
+
+{% block planning %}
+<div class="container" id="catalogueDiv">
+    {% include 'calendar.html.twig' %}
+</div>
+{% endblock %}
