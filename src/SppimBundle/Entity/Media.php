@@ -3,12 +3,15 @@
 namespace SppimBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\validator\Constraint as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Media
  *
  * @ORM\Table(name="media")
  * @ORM\Entity(repositoryClass="SppimBundle\Repository\MediaRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Media
 {
@@ -20,23 +23,72 @@ class Media
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    public $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="path", type="string", length=255)
      */
-    private $path;
+    public $path;
 
+    public $file;
+
+public function getUploadRootDir()
+{
+    return __DIR__.'..\..\..\..\web\ImageProduits';
+}
+public function getAbsolutePath()
+{
+    return null === $this->path ? null: $this->getUploadRootDir().'/'.$this->path;
+}
     /**
-     * @var string
-     *
-     * @ORM\Column(name="alt", type="string", length=125)
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
      */
-    private $alt;
+public function preUpload()
+{
+    $this->tempFile = $this->getAbsolutePath();
+    $this->oldFile = $this->getPath();
 
+    if (null !== $this->file)
+        $this->path = sha1(uniqid(mt_rand(),true)).'.'.$this->file->guessExtension();
+
+}
+    /**
+     * @ORM\PostPersist()
+     *@ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if(null !== $this->file){
+            $this->file->move($this->getUploadRootDir(),$this->path);
+            unset($this->file);
+
+            if ($this->oldFile != null) unlink($this>tempFile);
+        }
+    }
 
     /**
+     * @ORM\PreRemove()
+     */
+    public function preRemoveUpload()
+    {
+        $this->tempFile = $this->getAbsolutePath();
+    }
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if(file_exists($this->tempFile)) unlink($this->tempFile);
+    }
+        /**
      * Get id
      *
      * @return int
@@ -73,13 +125,13 @@ class Media
     /**
      * Set alt
      *
-     * @param string $alt
+     * @param string $name
      *
      * @return Media
      */
-    public function setAlt($alt)
+    public function setName($name)
     {
-        $this->alt = $alt;
+        $this->name = $name;
 
         return $this;
     }
@@ -89,9 +141,12 @@ class Media
      *
      * @return string
      */
-    public function getAlt()
+    public function getName()
     {
-        return $this->alt;
+        return $this->name;
+    }
+    public function __toString() {
+        return $this->name;
     }
 }
 

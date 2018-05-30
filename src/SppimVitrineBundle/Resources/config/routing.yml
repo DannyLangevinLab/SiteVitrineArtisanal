@@ -1,0 +1,3 @@
+sppim_vitrine_homepage:
+    path:     /
+    defaults: { _controller: SppimVitrineBundle:Default:index }

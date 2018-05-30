@@ -1,0 +1,16 @@
+#body {
+
+}
+#navbartop{
+    height: 150%;
+}
+#li.nav-item {
+    color: #0e90d2;
+}
+#logo{
+    margin-left: 6%;
+    margin-top: -0.5%;
+ position: absolute;
+    width: 13%;
+    height: 8%;
+}

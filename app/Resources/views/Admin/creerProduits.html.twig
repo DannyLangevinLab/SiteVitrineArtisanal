@@ -73,12 +73,11 @@
 <div class="container-fluid" id="FormCreation">
     <h5>Formulaire de création d'un article</h5>
     <div class="span3">
-    <form action="{{ path('creerProduits') }}" method="post">
+    <form action="{{ path('creerProduits') }}" method="post" enctype="multipart/form-data">
             {{form(form)}}
     </form>
 </div>
 </div>
-<div class="container-fluid" id="ApercuThumbnail">
 
     {% block apercuthumbnail %}
         <h5>Apercu de la Vignette dans le catalogue</h5>

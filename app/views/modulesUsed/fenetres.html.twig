@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}S.P.P.I.Menuiseries Vitrine{% endblock %}</title>
+        <link rel="stylesheet"  href="{{ asset('css/bootstrap.css') }}" />
+        <link rel="stylesheet"  href="{{ asset('css/bootstrap-responsive.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+
+        {% block stylesheets %}
+
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="span9">
+                            <ul class="thumbnails">
+                                {%  for i in 0..10 %}
+                                    <li class="span3">
+                                        <div class="thumbnail">
+                                            <img src="{{ asset ('img/holder.png') }}" alt="Produit" width="300" height="300">
+                                            <div class="caption">
+                                                <h4>Thumbnail label</h4>
+                                                <p>100,00 €</p>
+                                                <a class="btn btn-primary" href="{{ path('presentation') }}">Plus d'infos</a>
+                                                <a class="btn btn-success" href="{{ path('panier') }}">Ajouter au panier</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+
+                            <div class="pagination">
+                                <ul>
+                                    <li class="disabled"><span>Précédent</span></li>
+                                    <li class="disabled"><span>1</span></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">Suivant</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+    </main>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Fenêtres</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Aménagements Intérieur</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Petis Travaux Divers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Devis Sur Mesures</a>
+        </li>
+    </ul>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#">S.P.P.I.Menuiseries</a>
+                <div class="nav-collapse collapse">
+                    <form class="navbar-form form-search pull-right">
+                        <input id="Search" name="Search" type="text" class="input-medium search-query">
+                        <button type="submit" class="btn">Rechercher</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    {% block body %}
+
+    {% endblock %}
+
+    <footer id="footer" class="vspace20">
+        <div class="container">
+            <div class="row">
+                <div class="span4 offset1">
+                    <h4>Informations</h4>
+                    <ul class="nav nav-stacked">
+                        <li><a href="{{ path ('page',{ 'id':1}) }}">CGV</a>
+                        <li><a href="{{ path ('page',{ 'id':2}) }}">Mentions légales</a>
+                    </ul>
+                </div>
+
+                <div class="span4">
+                    <h4>Notre entrepôt</h4>
+                    <p><i class="icon-map-marker"></i>Paris 75 000 - 3 rue des jardins</p>
+                </div>
+
+                <div class="span2">
+                    <h4>Contacte</h4>
+                    <p><i class="icon-phone"></i>&nbsp;Tel: 02 35 00 00 00</p>
+                    <p><i class="icon-print"></i>&nbsp;Fax: 02 35 00 00 00</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span4">
+                    <p>&copy; Copyright 2018_Danny Langevin</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ asset('js/jquery-1.10.0.min.js') }}"></script>
+    <script src="{{ asset ('js/bootstrap.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+    </body>
+</html>

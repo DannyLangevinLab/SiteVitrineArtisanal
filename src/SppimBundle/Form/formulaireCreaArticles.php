@@ -7,6 +7,7 @@
  */
 
 namespace SppimBundle\Form;
+use SppimBundle\Controller\AjoutImagesProduitsController;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,6 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\CallbackTransformer;
+use SppimBundle\Form\formulaireImagesArticles;
 
 
 class formulaireCreaArticles extends AbstractType
@@ -30,7 +32,7 @@ class formulaireCreaArticles extends AbstractType
         //Initialisation Formulaire PHP Synfony v3
         $builder->add('Nom_Produit', TextType::class, array('attr' =>array('class' => 'form-control')))
             ->add('Disponibilite_du_Produit',ChoiceType::class,array('choices' => array('Oui'=>'Oui','Non'=>'Non')))
-            ->add('Visuel_du_Produit',FileType::class)
+            ->add('name', formulaireImagesArticles::class)
             ->add('Categorie_du_Produit',ChoiceType::class,array('choices' => array('PORTES INTERIEURES'=>'PORTES INTERIEURES','PORTES EXTERIEURES'=>'PORTES EXTERIEURES','FENETRES'=>'FENETRES','DRESSING'=>'DRESSING','PLACARDS'=>'PLACARDS')))
             ->add('Description_du_Produit',TextareaType::class)
             ->add('Materiaux_du_Produit',ChoiceType::class,array('choices' => array('ALU'=>'ALU','PVC'=>'PVC','BOIS'=>'BOIS')))
@@ -48,5 +50,6 @@ class formulaireCreaArticles extends AbstractType
     public function getName(){
         return 'app_admin_creerProduits.html.twig';
     }
+
 }
 

@@ -24,7 +24,10 @@ ajout:
     defaults: { _controller: SppimBundle:AjoutProduits:ajouter }
 creerProduits:
     path: /creerProduits
-    defaults: { _controller: SppimBundle:AjoutProduits:creerFormulaire }
+    defaults: { _controller: SppimBundle:AjoutProduits:creerFormulaire}
+imagesProduits:
+    path: /creerProduits
+    defaults: { _controller: SppimBundle:AjoutImagesProduits:creerImagesFormulaire}
 inscription:
     path: /inscription
     defaults: { _controller: SppimBundle:Register:registration }

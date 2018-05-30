@@ -9,6 +9,12 @@ class PortesController extends Controller
 
     public function montreportesAction()
     {
-        return $this->render('portes.html.twig');
+        $produits = $this->getDoctrine()
+            ->getRepository('SppimBundle:Produits')
+            ->findBy(array('categorie' => 'PORTES INTERIEURES'));
+
+        return $this->render("portes.html.twig", array(
+            'produits' => $produits,
+        ));
     }
 }

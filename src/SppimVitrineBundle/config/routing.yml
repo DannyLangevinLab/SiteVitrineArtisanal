@@ -1,0 +1,28 @@
+sppim_vitrine_homepage:
+    path:     /home
+    defaults: { _controller: SppimVitrineBundle:Default:index }
+
+produits:
+    path:  /produits
+    defaults: { _controller: SppimVitrineBundle:Produits:produits }
+
+presentation:
+    path:  /produit/presentation
+    defaults: { _controller: SppimVitrineBundle:Produits:produits }
+
+
+panier:
+        path:  /panier
+        defaults: { _controller: SppimVitrineBundle:Panier:panier }
+
+livraison:
+         path:  /panier/livraison
+         defaults: { _controller: SppimVitrineBundle:Panier:livraison }
+
+validation:
+     path:  /panier/validation
+     defaults: { _controller: SppimVitrineBundle:Panier:validation }
+
+page_suivante:
+      path:    /page2
+      defaults: {_controller: SppimVitrineBundle:Default:montre}
